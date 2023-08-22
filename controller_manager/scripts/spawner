@@ -117,7 +117,7 @@ def main():
     switch_controller_service = robot_namespace+"controller_manager/switch_controller"
 
     services_found = False
-    while not services_found:
+    while not services_found and not rospy.is_shutdown():
         try:
             # loader
             rospy.loginfo("Controller Spawner: Waiting for service "+load_controller_service)
